@@ -1,0 +1,15 @@
+.header-container {
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+.header-nav {
+  justify-content: center;
+  display: flex;
+}
+
+.nav-a {
+  justify-content: center;
+  color: red;
+}
