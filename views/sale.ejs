@@ -202,6 +202,13 @@
         margin-bottom: 31px;
       }
 
+      #item-selection {
+        display: none;
+      }
+
+      #pic1:hover #item-selection {
+        display: inline-block;
+      }
       /* .selection div {
         align-items: center;
       } */
@@ -533,7 +540,7 @@
       </section>
       <section class="pic-line">
         <div class="pic-item">
-          <div class="pic">
+          <div id="pic1" class="pic">
             <img src="/images/fruitbox.png" alt="fruit-box" />
           </div>
           <h5>FRUIT BOX</h5>
@@ -613,7 +620,7 @@
           </div>
         </div>
       </section>
-      <button>CONTINUE</button>
+      <button id="cont-btn">CONTINUE</button>
       <p id="mailto">
         For bulk orders over 288 cups, please email:
         <a href="mailto:wholesale@revivesuperfoods.com"
