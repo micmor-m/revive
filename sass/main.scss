@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@300&display=swap");
+
 /* MEDIA QUERY MANAGER 
 $breakpoint choises
 phone 0 - 375px
@@ -8,13 +9,37 @@ desktop + 1024px  //default style
 
 1em = 16px
 */
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 23.5em) {
+      //375px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 48em) {
+      //768px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 64em) {
+      //1024px
+      @content;
+    }
+  }
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: calibri, arial; }
+  font-family: calibri, arial;
+}
 
 html {
-  font-size: 100%; }
+  font-size: 100%; //1rem = 16px
+}
 
 .header-container {
   position: fixed;
@@ -27,10 +52,12 @@ html {
   z-index: 100;
   align-items: center;
   background-color: white;
-  /* padding: 15px; */ }
+  /* padding: 15px; */
+}
 
 main {
-  margin-top: 90px; }
+  margin-top: 90px;
+}
 
 .banner {
   width: 100%;
@@ -45,22 +72,25 @@ main {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: border-box;
-  margin-bottom: 81px; }
-  @media (max-width: 23.5em) {
-    .banner {
-      height: 366px;
-      background-image: url("/images/banner-phone.png");
-      background-size: contain;
-      background-position: right 0% bottom 0%;
-      margin-bottom: 54px; } }
+  margin-bottom: 81px;
+
+  @include respond(phone) {
+    height: 366px;
+    background-image: url("/images/banner-phone.png");
+    background-size: contain;
+    background-position: right 0% bottom 0%;
+    margin-bottom: 54px;
+  }
+}
 
 .banner-text {
   margin-left: 20vw;
   min-width: fit-content;
-  overflow: visible; }
-  @media (max-width: 23.5em) {
-    .banner-text {
-      margin-left: 6vw; } }
+  overflow: visible;
+  @include respond(phone) {
+    margin-left: 6vw;
+  }
+}
 
 .banner h1 {
   color: #252525;
@@ -71,11 +101,13 @@ main {
   line-height: 135%;
   text-transform: uppercase;
   height: 130px;
-  min-height: 130px; }
-  @media (max-width: 23.5em) {
-    .banner h1 {
-      font-size: 30px;
-      line-height: 135%; } }
+  min-height: 130px;
+
+  @include respond(phone) {
+    font-size: 30px;
+    line-height: 135%;
+  }
+}
 
 .banner p {
   color: #252525;
@@ -84,19 +116,22 @@ main {
   font-weight: 300;
   font-size: 18px;
   line-height: 27px;
-  margin-top: 15px; }
-  @media (max-width: 23.5em) {
-    .banner p {
-      font-size: 14px;
-      line-height: 150%;
-      width: 214px; } }
+  margin-top: 15px;
+
+  @include respond(phone) {
+    font-size: 14px;
+    line-height: 150%;
+    width: 214px;
+  }
+}
 
 .spot-line {
   /* display: grid;
   grid-template-columns: 89px 256px;
   grid-template-rows: auto auto; */
   margin-left: 12vw;
-  margin-bottom: 46px; }
+  margin-bottom: 46px;
+}
 
 .spot {
   display: inline-block;
@@ -113,6 +148,7 @@ main {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: border-box;
+
   padding-top: 10px;
   font-family: Roboto;
   font-style: normal;
@@ -120,13 +156,15 @@ main {
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-  color: #252525; }
-  @media (max-width: 23.5em) {
-    .spot {
-      width: 54px;
-      height: 41px;
-      font-size: 24px;
-      line-height: 27px; } }
+  color: #252525;
+
+  @include respond(phone) {
+    width: 54px;
+    height: 41px;
+    font-size: 24px;
+    line-height: 27px;
+  }
+}
 
 .spot-line h3 {
   display: inline-block;
@@ -139,11 +177,13 @@ main {
   place-self: center;
   text-transform: uppercase;
   color: #000000;
-  margin-left: 16px; }
-  @media (max-width: 23.5em) {
-    .spot-line h3 {
-      font-size: 24px;
-      line-height: 135%; } }
+  margin-left: 16px;
+
+  @include respond(phone) {
+    font-size: 24px;
+    line-height: 135%;
+  }
+}
 
 /* .spot-line-qty {
   display: grid;
@@ -151,6 +191,7 @@ main {
   grid-template-rows: auto auto;
   margin-left: 12vw;
 } */
+
 .spot-line h4 {
   display: inline-block;
   font-family: Roboto;
@@ -159,12 +200,15 @@ main {
   font-size: 18px;
   line-height: 150%;
   /* identical to box height, or 27px */
+
   color: #000000;
-  align-self: center; }
-  @media (max-width: 23.5em) {
-    .spot-line h4 {
-      font-size: 14px;
-      line-height: 150%; } }
+  align-self: center;
+
+  @include respond(phone) {
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
 
 .spot-line select {
   display: inline-block;
@@ -177,30 +221,38 @@ main {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px; }
+  line-height: 19px;
+}
 
 .spot-line span {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .pic-line {
   display: flex;
   flex-wrap: wrap;
+  // grid-template-columns: 230px 230px 230px;
+  // grid-template-rows: auto auto auto;
   margin-left: 12vw;
   column-gap: 80px;
-  justify-items: center; }
-  @media (max-width: 23.5em) {
-    .pic-line {
-      margin-left: 0;
-      justify-content: center; } }
+  justify-items: center;
+
+  @include respond(phone) {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
 
 .pic-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
-  @media (max-width: 23.5em) {
-    .pic-item {
-      margin-bottom: 10px; } }
+  align-items: center;
+
+  @include respond(phone) {
+    margin-bottom: 10px;
+  }
+}
 
 #item-selection {
   margin-top: 32px;
@@ -208,24 +260,29 @@ main {
   border: 2px solid #c4c4c4;
   border-radius: 15px;
   margin-left: 12vw;
-  margin-right: 12vw; }
+  margin-right: 12vw;
+}
 
 #item-selection .selection {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 31px; }
+  margin-bottom: 31px;
+}
 
 #item-selection {
-  display: none; }
+  display: none;
+}
 
 #pic1:hover #item-selection {
-  display: inline-block; }
-
+  display: inline-block;
+}
 /* .selection div {
   align-items: center;
 } */
+
 .pic-container {
-  text-align: center; }
+  text-align: center;
+}
 
 #item-selection h4 {
   font-family: Oswald;
@@ -238,7 +295,11 @@ main {
   margin-left: 50px;
   margin-top: 31px;
   margin-bottom: 14px;
-  color: #000000; }
+  color: #000000;
+}
+
+.pic:hover #item-selection {
+}
 
 .pic-item h5 {
   padding: 16px 0 8px 0;
@@ -248,8 +309,11 @@ main {
   font-size: 18px;
   line-height: 21px;
   /* identical to box height */
+
   text-align: center;
-  color: #000000; }
+
+  color: #000000;
+}
 
 .pic-item p {
   max-width: 121px;
@@ -259,7 +323,9 @@ main {
   font-size: 14px;
   line-height: 16px;
   text-align: center;
-  color: #000000; }
+
+  color: #000000;
+}
 
 button {
   width: 266px;
@@ -275,10 +341,12 @@ button {
   letter-spacing: 0.05em;
   color: #000000;
   margin-top: 40px;
-  border: 0; }
+  border: 0;
+}
 
 button:focus {
-  outline: none; }
+  outline: none;
+}
 
 #mailto {
   font-family: Roboto;
@@ -289,7 +357,8 @@ button:focus {
   margin-left: 12vw;
   margin-top: 16px;
   /* identical to box height, or 21px */
-  color: #000000; }
+  color: #000000;
+}
 
 #mailto a {
   font-family: Roboto;
@@ -297,19 +366,23 @@ button:focus {
   font-weight: 300;
   font-size: 14px;
   line-height: 150%;
-  color: #000000; }
+  color: #000000;
+}
 
 .cups {
   margin: 96px auto 0 12vw;
+  // width: 60%;
   display: flex;
   justify-content: start;
   align-items: center;
-  flex-wrap: wrap; }
-  @media (max-width: 23.5em) {
-    .cups {
-      width: 100%;
-      margin: 56px auto 0 auto;
-      padding: 10px; } }
+  flex-wrap: wrap;
+
+  @include respond(phone) {
+    width: 100%;
+    margin: 56px auto 0 auto;
+    padding: 10px;
+  }
+}
 
 .cups div {
   background-image: url("/images/varietycups.png");
@@ -320,19 +393,21 @@ button:focus {
   background-clip: border-box;
   min-width: 100%;
   min-width: 566px;
-  height: 475px; }
-  @media (max-width: 23.5em) {
-    .cups div {
-      min-width: 100%;
-      height: 257px;
-      background-image: url("/images/varietycups-phone.png");
-      background-position: center; } }
+  height: 475px;
+  @include respond(phone) {
+    min-width: 100%;
+    height: 257px;
+    background-image: url("/images/varietycups-phone.png");
+    background-position: center;
+  }
+}
 
 .cups section {
-  margin-left: 79px; }
-  @media (max-width: 23.5em) {
-    .cups section {
-      margin-left: auto; } }
+  margin-left: 79px;
+  @include respond(phone) {
+    margin-left: auto;
+  }
+}
 
 .cups h3 {
   font-family: Oswald;
@@ -342,10 +417,12 @@ button:focus {
   line-height: 135%;
   /* identical to box height, or 41px */
   margin-bottom: 13px;
-  color: #000000; }
-  @media (max-width: 23.5em) {
-    .cups h3 {
-      font-size: 24px; } }
+  color: #000000;
+
+  @include respond(phone) {
+    font-size: 24px;
+  }
+}
 
 .cups p {
   width: 539px;
@@ -355,26 +432,32 @@ button:focus {
   font-size: 18px;
   line-height: 150%;
   /* or 27px */
-  color: #000000; }
-  @media (max-width: 23.5em) {
-    .cups p {
-      font-size: 14px;
-      width: auto; } }
+
+  color: #000000;
+
+  @include respond(phone) {
+    font-size: 14px;
+    width: auto;
+  }
+}
 
 .retailers {
   height: 372px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 32px; }
+  margin-bottom: 32px;
+}
 
 .retailers section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+}
 
 .retailers div {
-  margin: 5px; }
+  margin: 5px;
+}
 
 .retailers h3 {
   font-family: Oswald;
@@ -384,64 +467,83 @@ button:focus {
   line-height: 135%;
   /* identical to box height, or 41px */
   margin-bottom: 32px;
+
   color: #000000;
-  text-align: center; }
-  @media (max-width: 23.5em) {
-    .retailers h3 {
-      font-size: 24px; } }
+  text-align: center;
+
+  @include respond(phone) {
+    font-size: 24px;
+  }
+}
 
 .highlights {
   background-color: #f1f0f0;
   width: 100%;
   min-height: 180px;
   display: flex;
-  justify-content: space-evenly; }
-  @media (max-width: 23.5em) {
-    .highlights {
-      flex-wrap: wrap;
-      justify-content: left;
-      padding: 0 25px; } }
+  justify-content: space-evenly;
 
-@media (max-width: 23.5em) {
-  .highlights-item {
+  @include respond(phone) {
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 0 25px;
+  }
+}
+
+.highlights-item {
+  @include respond(phone) {
     display: flex;
     flex-direction: row;
-    align-items: center; } }
+    align-items: center;
+  }
+}
 
 .highlights div {
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
-  text-align: center; }
+  text-align: center;
+}
 
 footer {
   height: 246px;
-  margin-top: 87px; }
+  margin-top: 87px;
+}
 
 footer section:first-child {
+  // display: grid;
+  // grid-template-columns: 50% auto;
+  // grid-template-rows: auto;
+  // margin-left: 8vw;
+  // column-gap: 80px;
   /* justify-items: center; */
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 0 10px; }
-  @media (max-width: 23.5em) {
-    footer section:first-child {
-      display: flex;
-      margin-left: 0; } }
+  padding: 0 10px;
+
+  @include respond(phone) {
+    display: flex;
+    margin-left: 0;
+  }
+}
 
 .links {
   display: flex;
   width: 50%;
   justify-content: space-between;
-  max-width: 450px; }
-  @media (max-width: 23.5em) {
-    .links {
-      display: none; } }
+  max-width: 450px;
 
+  @include respond(phone) {
+    display: none;
+  }
+}
 .group {
   display: flex;
   flex-direction: column;
-  width: 114px; }
+  // margin-right: 74px;
+  width: 114px;
+}
 
 .group h5 {
   font-family: Roboto;
@@ -450,7 +552,9 @@ footer section:first-child {
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
-  color: #000000; }
+
+  color: #000000;
+}
 
 .group a {
   margin-top: 16px;
@@ -461,7 +565,9 @@ footer section:first-child {
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
-  color: #545454; }
+
+  color: #545454;
+}
 
 .rights {
   width: 100%;
@@ -469,35 +575,43 @@ footer section:first-child {
   justify-content: center;
   align-items: center;
   height: 52px;
-  background-color: #f1f0f0; }
+  background-color: #f1f0f0;
+}
 
 .contact {
   max-width: 420px;
-  width: 50vw; }
+  width: 50vw;
+}
 
 .contact h5 {
   margin-top: 24px;
-  margin-left: 10px; }
-  @media (max-width: 23.5em) {
-    .contact h5 {
-      width: 70%; } }
+  margin-left: 10px;
+
+  @include respond(phone) {
+    width: 70%;
+  }
+}
 
 .contact form {
   /* margin-left: 10px; */
-  position: relative; }
+  position: relative;
+}
 
 .contact input {
   margin-top: 15px;
   margin-left: 10px;
   height: 50px;
+  // width: 370px;
   border: 1px solid #a9a9a9;
   border-right: none;
   padding: 2px;
   max-width: 370px;
-  width: 85%; }
-  @media (max-width: 23.5em) {
-    .contact input {
-      width: 80%; } }
+  width: 85%;
+
+  @include respond(phone) {
+    width: 80%;
+  }
+}
 
 #triangle {
   width: 40px;
@@ -511,32 +625,39 @@ footer section:first-child {
   bottom: 0;
   position: absolute;
   /* right: 0;
-  top: 0; */ }
+  top: 0; */
+}
 
 .contact .icon {
   margin-top: 15px;
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
 .region {
   margin-top: 15px;
   margin-left: 10px;
   margin-bottom: 53px;
   display: flex;
-  align-items: center; }
-  @media (max-width: 23.5em) {
-    .region {
-      margin-left: 0;
-      justify-content: center; } }
+  align-items: center;
+
+  @include respond(phone) {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
 
 .region p {
   margin-right: 31px;
+
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
-  color: #545454; }
-  @media (max-width: 23.5em) {
-    .region p {
-      display: none; } }
+
+  color: #545454;
+  @include respond(phone) {
+    display: none;
+  }
+}

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "compile:sass" : "node-sass sass/main.scss public/styles/styles.css -w"
   },
   "author": "Michele",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "save-dev": "0.0.1-security"
   },
   "devDependencies": {
+    "node-sass": "^6.0.1",
     "nodemon": "^2.0.4"
   }
 }
