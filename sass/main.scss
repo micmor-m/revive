@@ -840,3 +840,80 @@ footer section:first-child {
     display: none;
   }
 }
+
+.checkout-main {
+  padding: 0 5vw;
+}
+
+.progress-line {
+  max-width: 634px;
+  // border-bottom: 1px solid #c2c2c2;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: auto;
+  position: relative;
+}
+
+.progress-line p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #c2c2c2;
+  padding: 10px 0;
+}
+
+.progress-line p:last-child {
+  color: #000000;
+  border-bottom: 1px solid black;
+}
+
+.progress {
+  background-color: #c2c2c2;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  z-index: -1;
+}
+
+.checkout-title {
+  margin-top: 75px;
+  margin-bottom: 50px;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 135%;
+  color: #2d2d2d;
+}
+
+.checkout-page {
+  margin-left: 0;
+}
+
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#checkout-form label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 150%;
+  color: #252525;
+}
+
+#checkout-form input {
+  max-width: 470px;
+  background: #ffffff;
+  border: 1px solid #a0a0a0;
+  box-sizing: border-box;
+  border-radius: 15px;
+  height: 45px;
+}

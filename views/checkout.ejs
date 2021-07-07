@@ -11,8 +11,27 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <main></main>
+    <main class="checkout-main">
+      <section class="progress-line">
+        <div class="progress"></div>
+        <p>Choose Your Plan</p>
+        <p>Build Your Box</p>
+        <p>Checkout</p>
+      </section>
+      <h1 class="checkout-title">CHECKOUT</h1>
+      <form id="checkout-form">
+        <div class="column-1">
+          <section class="spot-line checkout-page">
+            <div class="spot">1</div>
+            <h3>CREATE YOUR ACCOUNT</h3>
+          </section>
+          <label for="email">Email</label>
+          <input type="email" name="email" />
+          <label for="password">Password</label>
+          <input type="password" name="password" />
+        </div>
+      </form>
+    </main>
     <%- include('partials/_footer') %>
-    <script src="/scripts/sale.js"></script>
   </body>
 </html>
