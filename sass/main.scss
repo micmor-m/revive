@@ -66,27 +66,51 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-image: url("/images/banner.png");
-  background-size: auto 100%;
-  background-position: right 0% bottom 0%;
-  background-repeat: no-repeat;
-  background-origin: border-box;
-  background-clip: border-box;
+  // background-image: url("/images/banner.png");
+  // background-size: auto 100%;
+  // background-position: right 0% bottom 0%;
+  // background-repeat: no-repeat;
+  // background-origin: border-box;
+  // background-clip: border-box;
   margin-bottom: 81px;
+  position: relative;
 
-  @include respond(phone) {
-    height: 366px;
+  @include respond(tab-port) {
+    height: 405px;
+    position: static;
     background-image: url("/images/banner-phone.png");
     background-size: contain;
     background-position: right 0% bottom 0%;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
+    margin-bottom: 54px;
+  }
+
+  @include respond(phone) {
+    height: 366px;
+    position: static;
+    background-image: url("/images/banner-phone.png");
+    background-size: contain;
+    background-position: right 0% bottom 0%;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
     margin-bottom: 54px;
   }
 }
 
 .banner-text {
   margin-left: 20vw;
-  min-width: fit-content;
+  // min-width: fit-content;
   overflow: visible;
+  width: auto;
+  min-width: fit-content;
+  z-index: 1;
+
+  @include respond(tab-port) {
+    margin-left: 12vw;
+  }
   @include respond(phone) {
     margin-left: 6vw;
   }
@@ -103,9 +127,13 @@ main {
   height: 130px;
   min-height: 130px;
 
+  @include respond(tab-port) {
+    font-size: 36px;
+    height: 130px;
+  }
+
   @include respond(phone) {
     font-size: 30px;
-    line-height: 135%;
   }
 }
 
@@ -118,10 +146,41 @@ main {
   line-height: 27px;
   margin-top: 15px;
 
+  @include respond(tab-port) {
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 150%;
+    width: 55vw;
+  }
+
   @include respond(phone) {
     font-size: 14px;
     line-height: 150%;
     width: 214px;
+  }
+}
+
+.banner-image {
+  background-image: url("/images/banner.png");
+  background-size: auto 100%;
+  background-position: right 0% bottom 0%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+  height: 452px;
+  width: 100vw;
+  margin-left: 0vw;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  min-width: 1473px;
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  @include respond(phone) {
+    display: none;
   }
 }
 
@@ -370,10 +429,11 @@ button:focus {
 }
 
 .cups {
-  margin: 96px auto 0 12vw;
+  // margin: 96px auto 0 12vw;
+  margin-top: 96px;
   // width: 60%;
   display: flex;
-  justify-content: start;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 
@@ -391,9 +451,16 @@ button:focus {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: border-box;
-  min-width: 100%;
+  // min-width: 100%;
   min-width: 566px;
   height: 475px;
+
+  @include respond(tab-port) {
+    min-width: 100%;
+    height: 257px;
+    background-image: url("/images/varietycups-phone.png");
+    background-position: center;
+  }
   @include respond(phone) {
     min-width: 100%;
     height: 257px;
@@ -403,7 +470,11 @@ button:focus {
 }
 
 .cups section {
-  margin-left: 79px;
+  // margin-left: 79px;
+  @include respond(tab-port) {
+    padding: 0 15px 20px 15px;
+  }
+
   @include respond(phone) {
     margin-left: auto;
   }
@@ -434,6 +505,11 @@ button:focus {
   /* or 27px */
 
   color: #000000;
+
+  @include respond(tab-port) {
+    max-width: 539px;
+    width: auto;
+  }
 
   @include respond(phone) {
     font-size: 14px;
@@ -483,6 +559,12 @@ button:focus {
   display: flex;
   justify-content: space-evenly;
 
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 25px 35px 25px;
+  }
+
   @include respond(phone) {
     flex-wrap: wrap;
     justify-content: left;
@@ -495,6 +577,7 @@ button:focus {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 10px;
   }
 }
 
@@ -522,6 +605,13 @@ footer section:first-child {
   width: 100%;
   padding: 0 10px;
 
+  @include respond(tab-port) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    // justify-content: space-between;
+  }
+
   @include respond(phone) {
     display: flex;
     margin-left: 0;
@@ -534,6 +624,13 @@ footer section:first-child {
   justify-content: space-between;
   max-width: 450px;
 
+  @include respond(tab-port) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
   @include respond(phone) {
     display: none;
   }
@@ -543,6 +640,11 @@ footer section:first-child {
   flex-direction: column;
   // margin-right: 74px;
   width: 114px;
+
+  @include respond(tab-port) {
+    width: auto;
+    margin-right: 10px;
+  }
 }
 
 .group h5 {
@@ -581,6 +683,10 @@ footer section:first-child {
 .contact {
   max-width: 420px;
   width: 50vw;
+
+  @include respond(phone) {
+    width: 100vw;
+  }
 }
 
 .contact h5 {
@@ -644,6 +750,35 @@ footer section:first-child {
     margin-left: 0;
     justify-content: center;
   }
+}
+
+.link-phone {
+  display: none;
+
+  @include respond(phone) {
+    display: block;
+    margin: 10px;
+  }
+}
+.link-phone__item {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.link-phone__item h5 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0%;
+}
+
+.link-phone__item img {
+  width: 9px;
+  height: 14px;
 }
 
 .region p {

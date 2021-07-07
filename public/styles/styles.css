@@ -39,25 +39,40 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-image: url("/images/banner.png");
-  background-size: auto 100%;
-  background-position: right 0% bottom 0%;
-  background-repeat: no-repeat;
-  background-origin: border-box;
-  background-clip: border-box;
-  margin-bottom: 81px; }
-  @media (max-width: 23.5em) {
+  margin-bottom: 81px;
+  position: relative; }
+  @media (max-width: 48em) {
     .banner {
-      height: 366px;
+      height: 405px;
+      position: static;
       background-image: url("/images/banner-phone.png");
       background-size: contain;
       background-position: right 0% bottom 0%;
+      background-repeat: no-repeat;
+      background-origin: border-box;
+      background-clip: border-box;
+      margin-bottom: 54px; } }
+  @media (max-width: 23.5em) {
+    .banner {
+      height: 366px;
+      position: static;
+      background-image: url("/images/banner-phone.png");
+      background-size: contain;
+      background-position: right 0% bottom 0%;
+      background-repeat: no-repeat;
+      background-origin: border-box;
+      background-clip: border-box;
       margin-bottom: 54px; } }
 
 .banner-text {
   margin-left: 20vw;
+  overflow: visible;
+  width: auto;
   min-width: fit-content;
-  overflow: visible; }
+  z-index: 1; }
+  @media (max-width: 48em) {
+    .banner-text {
+      margin-left: 12vw; } }
   @media (max-width: 23.5em) {
     .banner-text {
       margin-left: 6vw; } }
@@ -72,10 +87,13 @@ main {
   text-transform: uppercase;
   height: 130px;
   min-height: 130px; }
+  @media (max-width: 48em) {
+    .banner h1 {
+      font-size: 36px;
+      height: 130px; } }
   @media (max-width: 23.5em) {
     .banner h1 {
-      font-size: 30px;
-      line-height: 135%; } }
+      font-size: 30px; } }
 
 .banner p {
   color: #252525;
@@ -85,11 +103,38 @@ main {
   font-size: 18px;
   line-height: 27px;
   margin-top: 15px; }
+  @media (max-width: 48em) {
+    .banner p {
+      margin-top: 25px;
+      font-size: 16px;
+      line-height: 150%;
+      width: 55vw; } }
   @media (max-width: 23.5em) {
     .banner p {
       font-size: 14px;
       line-height: 150%;
       width: 214px; } }
+
+.banner-image {
+  background-image: url("/images/banner.png");
+  background-size: auto 100%;
+  background-position: right 0% bottom 0%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+  height: 452px;
+  width: 100vw;
+  margin-left: 0vw;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  min-width: 1473px; }
+  @media (max-width: 48em) {
+    .banner-image {
+      display: none; } }
+  @media (max-width: 23.5em) {
+    .banner-image {
+      display: none; } }
 
 .spot-line {
   /* display: grid;
@@ -300,9 +345,9 @@ button:focus {
   color: #000000; }
 
 .cups {
-  margin: 96px auto 0 12vw;
+  margin-top: 96px;
   display: flex;
-  justify-content: start;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap; }
   @media (max-width: 23.5em) {
@@ -318,9 +363,14 @@ button:focus {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: border-box;
-  min-width: 100%;
   min-width: 566px;
   height: 475px; }
+  @media (max-width: 48em) {
+    .cups div {
+      min-width: 100%;
+      height: 257px;
+      background-image: url("/images/varietycups-phone.png");
+      background-position: center; } }
   @media (max-width: 23.5em) {
     .cups div {
       min-width: 100%;
@@ -328,11 +378,13 @@ button:focus {
       background-image: url("/images/varietycups-phone.png");
       background-position: center; } }
 
-.cups section {
-  margin-left: 79px; }
-  @media (max-width: 23.5em) {
-    .cups section {
-      margin-left: auto; } }
+@media (max-width: 48em) {
+  .cups section {
+    padding: 0 15px 20px 15px; } }
+
+@media (max-width: 23.5em) {
+  .cups section {
+    margin-left: auto; } }
 
 .cups h3 {
   font-family: Oswald;
@@ -356,6 +408,10 @@ button:focus {
   line-height: 150%;
   /* or 27px */
   color: #000000; }
+  @media (max-width: 48em) {
+    .cups p {
+      max-width: 539px;
+      width: auto; } }
   @media (max-width: 23.5em) {
     .cups p {
       font-size: 14px;
@@ -396,6 +452,11 @@ button:focus {
   min-height: 180px;
   display: flex;
   justify-content: space-evenly; }
+  @media (max-width: 48em) {
+    .highlights {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 25px 35px 25px; } }
   @media (max-width: 23.5em) {
     .highlights {
       flex-wrap: wrap;
@@ -406,7 +467,8 @@ button:focus {
   .highlights-item {
     display: flex;
     flex-direction: row;
-    align-items: center; } }
+    align-items: center;
+    margin: 10px; } }
 
 .highlights div {
   /* display: flex;
@@ -424,6 +486,11 @@ footer section:first-child {
   justify-content: space-around;
   width: 100%;
   padding: 0 10px; }
+  @media (max-width: 48em) {
+    footer section:first-child {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 0; } }
   @media (max-width: 23.5em) {
     footer section:first-child {
       display: flex;
@@ -434,6 +501,12 @@ footer section:first-child {
   width: 50%;
   justify-content: space-between;
   max-width: 450px; }
+  @media (max-width: 48em) {
+    .links {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 50px; } }
   @media (max-width: 23.5em) {
     .links {
       display: none; } }
@@ -442,6 +515,10 @@ footer section:first-child {
   display: flex;
   flex-direction: column;
   width: 114px; }
+  @media (max-width: 48em) {
+    .group {
+      width: auto;
+      margin-right: 10px; } }
 
 .group h5 {
   font-family: Roboto;
@@ -474,6 +551,9 @@ footer section:first-child {
 .contact {
   max-width: 420px;
   width: 50vw; }
+  @media (max-width: 23.5em) {
+    .contact {
+      width: 100vw; } }
 
 .contact h5 {
   margin-top: 24px;
@@ -527,6 +607,31 @@ footer section:first-child {
     .region {
       margin-left: 0;
       justify-content: center; } }
+
+.link-phone {
+  display: none; }
+  @media (max-width: 23.5em) {
+    .link-phone {
+      display: block;
+      margin: 10px; } }
+
+.link-phone__item {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  margin: 20px 0; }
+
+.link-phone__item h5 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0%; }
+
+.link-phone__item img {
+  width: 9px;
+  height: 14px; }
 
 .region p {
   margin-right: 31px;
