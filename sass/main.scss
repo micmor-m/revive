@@ -281,6 +281,12 @@ main {
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
+  border: 1px solid transparent;
+}
+
+.spot-line select:hover {
+  cursor: pointer;
+  border-color: black;
 }
 
 .spot-line span {
@@ -307,34 +313,57 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid transparent;
 
   @include respond(phone) {
     margin-bottom: 10px;
   }
 }
 
-#item-selection {
-  margin-top: 32px;
+.pic-item:hover {
+  cursor: pointer;
+  border-color: black;
+}
+
+.item-selection {
+  margin-top: 25px;
   /* background: #c4c4c4; */
   border: 2px solid #c4c4c4;
   border-radius: 15px;
-  margin-left: 12vw;
-  margin-right: 12vw;
+  margin-bottom: 25px;
+  // margin-left: 12vw;
+  // margin-right: 12vw;
+  // margin: 0px 12vw 84px 0;
+  width: 90%;
 }
 
-#item-selection .selection {
+// #item-selection-2 {
+//   margin: 0px 12vw 84px 0;
+
+//   @include respond(tablet-port) {
+//     margin: 0px 12vw 84px 0;
+//   }
+// }
+
+.item-selection .selection {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 31px;
 }
 
-#item-selection {
+.item-selection,
+.br-selection {
   display: none;
 }
 
-#pic1:hover #item-selection {
+.show1 {
   display: inline-block;
 }
+
+// #pic1:hover #item-selection {
+//   display: inline-block;
+// }
 /* .selection div {
   align-items: center;
 } */
@@ -343,7 +372,11 @@ main {
   text-align: center;
 }
 
-#item-selection h4 {
+.item-selection h5 {
+  padding: 0 5px;
+}
+
+.item-selection h4 {
   font-family: Oswald;
   font-style: normal;
   font-weight: 600;
@@ -355,9 +388,6 @@ main {
   margin-top: 31px;
   margin-bottom: 14px;
   color: #000000;
-}
-
-.pic:hover #item-selection {
 }
 
 .pic-item h5 {
@@ -401,6 +431,12 @@ button {
   color: #000000;
   margin-top: 40px;
   border: 0;
+  border: 1px solid transparent;
+}
+
+button:hover {
+  cursor: pointer;
+  border-color: black;
 }
 
 button:focus {
@@ -739,6 +775,10 @@ footer section:first-child {
   margin-left: 10px;
 }
 
+.icon img:hover {
+  cursor: pointer;
+}
+
 .region {
   margin-top: 15px;
   margin-left: 10px;
@@ -750,6 +790,10 @@ footer section:first-child {
     margin-left: 0;
     justify-content: center;
   }
+}
+
+.region img:hover {
+  cursor: pointer;
 }
 
 .link-phone {

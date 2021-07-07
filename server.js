@@ -15,6 +15,12 @@ app.get("/", (req, res) => {
   res.render("sale", templateVars);
 });
 
+app.get("/checkout", (req, res) => {
+  let templateVars = {};
+
+  res.render("checkout", templateVars);
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server listening at post 3000");
 });

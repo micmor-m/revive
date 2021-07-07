@@ -222,7 +222,12 @@ main {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px; }
+  line-height: 19px;
+  border: 1px solid transparent; }
+
+.spot-line select:hover {
+  cursor: pointer;
+  border-color: black; }
 
 .spot-line span {
   font-weight: bold; }
@@ -242,28 +247,35 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  border: 1px solid transparent; }
   @media (max-width: 23.5em) {
     .pic-item {
       margin-bottom: 10px; } }
 
-#item-selection {
-  margin-top: 32px;
+.pic-item:hover {
+  cursor: pointer;
+  border-color: black; }
+
+.item-selection {
+  margin-top: 25px;
   /* background: #c4c4c4; */
   border: 2px solid #c4c4c4;
   border-radius: 15px;
-  margin-left: 12vw;
-  margin-right: 12vw; }
+  margin-bottom: 25px;
+  width: 90%; }
 
-#item-selection .selection {
+.item-selection .selection {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 31px; }
 
-#item-selection {
+.item-selection,
+.br-selection {
   display: none; }
 
-#pic1:hover #item-selection {
+.show1 {
   display: inline-block; }
 
 /* .selection div {
@@ -272,7 +284,10 @@ main {
 .pic-container {
   text-align: center; }
 
-#item-selection h4 {
+.item-selection h5 {
+  padding: 0 5px; }
+
+.item-selection h4 {
   font-family: Oswald;
   font-style: normal;
   font-weight: 600;
@@ -320,7 +335,12 @@ button {
   letter-spacing: 0.05em;
   color: #000000;
   margin-top: 40px;
-  border: 0; }
+  border: 0;
+  border: 1px solid transparent; }
+
+button:hover {
+  cursor: pointer;
+  border-color: black; }
 
 button:focus {
   outline: none; }
@@ -597,6 +617,9 @@ footer section:first-child {
   margin-top: 15px;
   margin-left: 10px; }
 
+.icon img:hover {
+  cursor: pointer; }
+
 .region {
   margin-top: 15px;
   margin-left: 10px;
@@ -607,6 +630,9 @@ footer section:first-child {
     .region {
       margin-left: 0;
       justify-content: center; } }
+
+.region img:hover {
+  cursor: pointer; }
 
 .link-phone {
   display: none; }
